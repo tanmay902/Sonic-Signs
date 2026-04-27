@@ -1,0 +1,91 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<style>
+
+  body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  #google_element {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .version-container {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 700px;
+  }
+
+  .version-title, .status-title, .creator-title 
+  {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 15px 0;
+  }
+
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #007bff, #4a90e2);
+    margin: 10px 0;
+  }
+
+  .creator-list {
+    list-style: none;
+    padding: 0;
+    color: #555;
+    font-weight: bold;
+  }
+
+  .creator-list li {
+    margin: 10px 0;
+  }
+
+  .thanks-message {
+    font-size: 18px;
+    color: #007bff;
+    margin-top: 20px;
+  }
+</style>
+
+
+<div id="google_element"></div>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+  function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+  }
+</script>
+
+<div class="version-container">
+  <h2 class="version-title">VERSION 1.0.0</h2>
+  <hr class="divider" />
+  
+  <h2 class="status-title">The Project is currently under development</h2>
+  <hr class="divider" />
+  
+  <h2 class="creator-title">Creator:</h2>
+  <hr class="divider" />
+  
+  <ul class="creator-list">
+    <li>Tanmay Trivedi</li>
+    <li>Suyash Dwivedi</li>
+    <li>Om Shukla</li>
+    <li>Rudraksh Sharma</li>
+  </ul>
+  
+  <hr class="divider" />
+  <p class="thanks-message">Thank you for visiting the website!</p>
+</div>
+{% endblock %}

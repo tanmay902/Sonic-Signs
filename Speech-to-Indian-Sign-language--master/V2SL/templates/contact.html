@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    color: #333;
+    max-width: 600px;
+    margin: 50px auto;
+  }
+
+  #google_element {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .td {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  form .form-group label {
+    font-weight: bold;
+    color: #555;
+  }
+
+  form .form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  form button.btn-primary {
+    background-color: #6e8efb;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  form button.btn-primary:hover {
+    background-color: #a777e3;
+    transform: scale(1.05);
+  }
+
+  hr {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+</style>
+
+<div id="google_element"></div>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+  function loadGoogleTranslate() {
+    new google.translate.TranslateElement("google_element");
+  }
+</script>
+
+<h2>VERSION 1.0.0</h2>
+<hr />
+<h2>CONTACT US</h2>
+<p class="td">
+  For any queries regarding this website contact us on the following:
+</p>
+<p class="td">My Email ID: tanmaytrivedi062@gmail.com</p>
+<p class="td">Contact number: +91 8188955468</p>
+<hr />
+
+<!-- Display Django Messages -->
+{% if messages %}
+  <div class="container mt-3">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="container mb-3 py-4">
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Enter your Name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter Your Email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input
+        type="phone"
+        class="form-control"
+        id="phone"
+        name="phone"
+        placeholder="Enter Your Phone Number"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Tell me about what you want to contact me for...</label>
+      <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
+<p class="td">Thank you for visiting our website!</p>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Voice to Visual ISL Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .Section_top {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            background-image: url({% static 'img1.jpg' %});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            justify-content: center;
+            animation: change 10s infinite ease-in-out;
+        }
+
+        @keyframes change {
+            0% {
+                background-image: url({% static 'img1.jpg' %});
+            }
+            20% {
+                background-image: url({% static 'img2.jpg' %});
+            }
+            40% {
+                background-image: url({% static 'img3.jpg' %});
+            }
+            60% {
+                background-image: url({% static 'img4.jpg' %});
+            }
+            80% {
+                background-image: url({% static 'image.jpg' %});
+            }
+            100% {
+                background-image: url({% static 'img1.jpg' %});
+            }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        #google_element {
+            margin-bottom: 10px;
+        }
+
+        #nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            width: 100%;
+        }
+
+        #nav .li {
+            flex: 1;
+            text-align: center;
+        }
+
+        #nav li a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        #nav li a:hover {
+            background-color: #393f4d;
+            color: #ffffff;
+        }
+
+        
+
+        .content {
+            text-align: center;
+            margin-top: 150px;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 130px;
+            color: white;
+            font-weight: 600;
+            transition: 0.5s;
+        }
+
+        .content h1:hover {
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
+        }
+
+        .content button {
+            font-size: 50px;
+            color: white;
+            font-weight: 400;
+            transition: 0.5s;
+        }
+
+        .content button:hover {
+            -webkit-text-stroke: 2px rgb(24, 248, 16);
+            color: transparent;
+        }
+
+        .content a {
+            text-decoration: none;
+            display: inline-block;
+            color: #fff;
+            font-size: 24px;
+            border: 2px solid #fff;
+            padding: 14px 70px;
+            margin-top: 20px;
+            border-radius: 50px;
+        }
+
+        .trans {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:#050505;color:#ffffff;padding:10 10 1 10;border: 1px  groove;margin-bottom:0;">
+
+        <h1 align=center>Voice to Visual ISL Converter</h1>
+        </div>
+    <div class="Section_top">
+        <div class="header-container">
+            <div id="google_element"></div>
+            <ul id="nav">
+                <li class="li"><a class="active" href="{% url 'home' %}">Home</a></li>
+                <li class="li"><a href="{% url 'animation' %}">Converter</a></li>
+                {% if not user.is_authenticated %}
+                <li class="li"><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="li"><a href="{% url 'logout' %}">Log-Out</a></li>
+                {% else %}
+                <li class="li"><a href="{% url 'login' %}">Log-in</a></li>
+                {% endif %}
+                <li class="li"><a href="{% url 'contact' %}">Contact</a></li>
+                <li class="li"><a href="{% url 'about' %}">About</a></li>
+                <li class="li"><a href="{% url 'manual' %}">Manual</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Welcome to <br>Voice to Visual ISL Converter</h1>
+            <a href="{% url 'animation' %}" target="_blank">
+                <button class="trans">Click to Start</button>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+</body>
+</html>

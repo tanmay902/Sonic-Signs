@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    flex: 1;
+    text-align: center;
+}
+
+#google_element {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 20px 40px;
+    color: #f1f1f1;
+}
+
+ul {
+    margin: 20px 60px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f1f1;
+}
+
+li {
+    margin-bottom: 10px;
+}
+</style>
+
+<div id="google_element"></div>
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+    function loadGoogleTranslate() {
+        new google.translate.TranslateElement("google_element");
+    }
+</script>
+
+<h1>User Manual</h1>
+
+<p>Dear Reader,</p><br />
+<p><b>What is the purpose of this website?</b><br />
+The aim of this website is to offer an effective way of teaching and learning Indian Sign Language, encouraging special educators and deaf students to teach/learn their school subjects through Indian Sign Language. The signs will be displayed in short, continuously repeated video files to help learners grasp the language easily.</p><br />
+
+<p><b>What is Sign Language?</b><br />
+Sign Language is a naturally evolved language like other oral languages. It is used by persons with deafness for daily communication. It is considered the mother tongue of persons with deafness. Like other languages, it is an independent language with complex grammar. It involves naturally evolved visual-manual signs.</p><br />
+
+<p><b>Who uses Sign Language? / Who will get the benefit?</b><br />
+The deaf community uses Sign Language for communication. Interpreters use it to translate oral language into visual-manual language. Teachers, special educators, and parents of deaf children use it to impart knowledge and communicate in daily life. Other professionals also use Sign Language to meet specific needs.</p><br />
+
+<p><b>Where can Sign Language be used?</b><br />
+Sign Language can be used in special schools for the deaf, educational settings, commercial offices, and public places.</p><br />
+
+<p><b>Why promote Sign Language?</b><br />
+According to the 2001 Census, more than one million deaf people and ten million hard-of-hearing people live in India. Promoting Sign Language helps uplift the deaf community, provide education, vocational guidance, and promote inclusive education. The UNCRPD emphasizes the need for Sign Language in educational institutions as a fundamental right of the deaf community.</p><br />
+
+<p><b>How to promote Sign Language?</b><br />
+Sign Language can be promoted through media, awareness programs, and involving the deaf community in school and college activities.</p><br />
+
+<p><b>What is being done by the RKMVU-FDMSE to promote Sign Language?</b><br />
+The Faculty of Disability Management and Special Education of Ramakrishna Mission Vivekananda University has been involved in various activities since 2005. Some key achievements include:</p>
+
+<ul>
+    <li>Developed Indian Sign Language Dictionary in 2001 with 1600 words.</li>
+    <li>Developed Indian Technical Sign Language Dictionary.</li>
+    <li>Developed Indian Sign Language for Banking terminology.</li>
+    <li>Developed Indian Sign Language for Physics terminology.</li>
+    <li>Offering Diploma in Indian Sign Language Interpretation since 2005.</li>
+    <li>Organizing awareness programs for teachers, parents, police, air force officers, and other professionals.</li>
+    <li>Launched a website on Indian Sign Language.</li>
+    <li>Launched a Video Relay Service for the deaf community.</li>
+    <li>Collaborated with CIIL for the Corpus on Indian Sign Language.</li>
+    <li>Involved in research activities on Indian Sign Language.</li>
+</ul>
+
+{% endblock %}
